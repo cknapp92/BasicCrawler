@@ -6,10 +6,14 @@ class AppCrawler:
 	def __init__ (self, starting_url, depth):
 		self.starting_url = starting_url
 		self.depth = depth
+		self.current_depth = 0
+		self.depth_links = []
 		self.apps = []
 
 	def crawl(self):
-		self.get_app_from_link(self.starting_url)
+		app = self.get_app_from_link(self.starting_url)
+		self.apps.append(app)
+
 		return
 
 	def get_app_from_link(self, link):
